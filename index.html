@@ -21,17 +21,52 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-        <!-- Add your site or application content here -->
-         <h1>BeerMe</h1>
-         <input id="searchText" />
-         <select id="type">
-            <option value="beer">Beer</option>
-            <option value="brewery">Brewery</option>
-         </select>
-         <button id="searchButton">Search</button>
-         <button id="locateBreweries">Find breweries near me</button>
-         <div id="content">
-         </div>
+        <script type="text/template" id="homeTemplate">
+             <div id="home">
+                 <header class="topcoat-navigation-bar">
+                    <div class="topcoat-navigation-bar__item center full">
+                        <h1 class="topcoat-navigation-bar__title">Header</h1>
+                    </div>
+                </header>
+                <div id="content">
+                     <input id="searchText" type="search" class="topcoat-search-input" placeholder="search">
+                     <select id="type">
+                        <option value="beer">Items</option>
+                        <option value="brewery">Locations</option>
+                     </select>
+                     <button id="searchButton" class="topcoat-button--cta">Search</button>
+                     <button id="locateBreweries" class="topcoat-button--cta">locations near me</button>
+                     <div id="homeContent" class="topcoat-list__container">
+                        <ul id="searchList" class="topcoat-list"></ul>
+                     </div>
+                </div>
+             </div>
+         </script>
+
+         <script type="text/template" id="searchTemplate">
+             <div id="search">
+                 <header class="topcoat-navigation-bar">
+                    <div class="topcoat-navigation-bar__item center full">
+                        <h1 class="topcoat-navigation-bar__title">Header</h1>
+                    </div>
+                </header>
+                <div id="content">
+                     <input id="searchText" type="search" class="topcoat-search-input" placeholder="search">
+                     <div>
+                         <p>I&#39;m searching for</p>
+                         <button id="beerButton" class="topcoat-button--cta center">Beer</button>
+                         <button id="breweryButton" class="topcoat-button--cta center">Breweries</button>
+                     </div>
+                     <div>
+                         <p>or</p>
+                         <button id="locateBreweries" class="topcoat-button--cta center">locations near me</button>
+                     </div>
+                     <div id="homeContent" class="topcoat-list__container">
+                        <ul id="searchList" class="topcoat-list"></ul>
+                     </div>
+                </div>
+             </div>
+         </script>
          <script type="text/template" id="beerListTemplate">
             <span><%= name %></span> - <span><%= breweries[0].name %></span>
          </script>
