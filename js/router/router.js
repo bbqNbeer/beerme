@@ -1,9 +1,20 @@
 // Router
-var AppRouter = Backbone.Router.extend({
+var Router = Backbone.Router.extend({
  
     routes:{
-        "":"",
+        "":"home",
         "search-list":"list"
+    },
+
+    initialize:function () {
+        console.log('router initialized');
+        //$('#content').html(new HomeView().render().el);
+        var homeView = new HomeView();
+    },
+
+    home: function(){
+        console.log('home route fired');
+        //this.homeView = new HomeView();
     },
  
     list: function() {
@@ -16,9 +27,4 @@ var AppRouter = Backbone.Router.extend({
         console.log(beerData);
     }
  
-    // wineDetails:function (id) {
-    //     this.wine = this.wineList.get(id);
-    //     this.wineView = new WineView({model:this.wine});
-    //     $('#content').html(this.wineView.render().el);
-    // }
 });
