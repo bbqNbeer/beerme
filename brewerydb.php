@@ -251,15 +251,15 @@ class Pintlabs_Service_Brewerydb
     // 'brewery/BrvKTz', 'beers', etc.
     // The third parameter is the HTTP method to use (GET, PUT, POST, or DELETE)
 
-    if($_POST['ep'] == 'search'){
-        $results = $bdb->request( '/search', array('q' => $_POST['q'], 'type' => $_POST['type'], 'withBreweries' => $_POST['wb']), 'GET'); // where $params is a keyed array of parameters to send with the API call.
+    if($_GET['ep'] == 'search'){
+        $results = $bdb->request( '/search', array('q' => $_GET['q'], 'type' => $_GET['type'], 'withBreweries' => $_GET['wb']), 'GET'); // where $params is a keyed array of parameters to send with the API call.
         echo json_encode($results);
         // echo json_encode($_POST); 
         // echo json_encode($_GET); 
-    } else if($_POST['ep'] == 'geo'){
+    } else if($_GET['ep'] == 'geo'){
         //$geoSearch = str_replace('/\\', '/', $_POST['search']);
         //$results = $bdb->request('/search/geo/point', array('lat' => 39.102970899999995, 'lng' => -94.5850105), 'GET'); // where $params is a keyed array of parameters to send with the API call.
-        $results = $bdb->request('/search/geo/point', array('lat' => $_POST['lat'], 'lng' => $_POST['lng'], 'radius' => $_POST['radius']),  'GET'); // where $params is a keyed array of parameters to send with the API call.
+        $results = $bdb->request('/search/geo/point', array('lat' => $_GET['lat'], 'lng' => $_GET['lng'], 'radius' => $_GET['radius']),  'GET'); // where $params is a keyed array of parameters to send with the API call.
         echo json_encode($results['data']);
         // echo json_encode($_POST); 
         // echo json_encode($_GET); 
