@@ -38,7 +38,7 @@ var BeerListView = Backbone.View.extend({
         var beersView = new BeerItemView({
             model: item
         });
-        this.$el.append( beersView.render().el );
+        $('#searchList').append( beersView.render().el );
     }
  
 });

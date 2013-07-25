@@ -3,7 +3,7 @@ var app = app || {};
 
 var BeerItemView = Backbone.View.extend({
     tagName: 'li',
-    className: 'beerContainer',
+    className: 'topcoat-list__item',
     template: _.template( $( '#beerListTemplate' ).html() ),
 
     render: function() {
