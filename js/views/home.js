@@ -1,6 +1,6 @@
 var HomeView = Backbone.View.extend({
     el: 'body',
-    template: _.template( $( '#homeTemplate' ).html() ),
+    template: _.template( $( '#searchTemplate' ).html() ),
 
     initialize:function () {
         this.render();
@@ -26,7 +26,14 @@ var HomeView = Backbone.View.extend({
 			 type = $('#type').val();
 		console.log('type: ' + type);
 		var searchItems = new BeerCollection();
-		searchItems.fetch({ data: { q: query, ep: 'search', type: type, wb: 'y' }, type: 'POST', success: success });
+		searchItems.fetch({ 
+			data: { 
+				q: query, 
+				ep: 'search', 
+				type: type, 
+				wb: 'y' 
+			}, 
+			type: 'GET', success: success });
 
 		function success(response){
 			console.log(response.models[0]['attributes']['data']);
